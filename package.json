@@ -1,6 +1,6 @@
 {
   "name": "recipe-book",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "license": "MIT",
   "angular-cli": {},
   "scripts": {
@@ -42,5 +42,13 @@
     "ts-node": "1.2.1",
     "tslint": "^4.3.0",
     "typescript": "~2.0.3"
-  }
+  },
+  "description": "This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.28.3.",
+  "main": "karma.conf.js",
+  "keywords": [
+    "Angular2",
+    "Recipe",
+    "Book"
+  ],
+  "author": "Sergey Stelmakh <stelmakhserg@gmail.com>"
 }
