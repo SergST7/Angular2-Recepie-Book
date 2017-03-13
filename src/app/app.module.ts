@@ -14,6 +14,7 @@ import { ShoppingListAddComponent } from './shopping-list/shopping-list-add.comp
 
 //services
 import {ShoppingListService} from "./shopping-list/shopping-list.service";
+import { DropdownDirective } from './dropdown.directive';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import {ShoppingListService} from "./shopping-list/shopping-list.service";
     RecipeItemComponent,
     RecipeDetailComponent,
     ShoppingListComponent,
-    ShoppingListAddComponent
+    ShoppingListAddComponent,
+    DropdownDirective
   ],
   imports: [
     BrowserModule,
