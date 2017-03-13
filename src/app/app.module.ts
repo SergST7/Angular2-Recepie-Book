@@ -12,6 +12,9 @@ import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.com
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { ShoppingListAddComponent } from './shopping-list/shopping-list-add.component';
 
+//services
+import {ShoppingListService} from "./shopping-list/shopping-list.service";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +31,7 @@ import { ShoppingListAddComponent } from './shopping-list/shopping-list-add.comp
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [ShoppingListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
