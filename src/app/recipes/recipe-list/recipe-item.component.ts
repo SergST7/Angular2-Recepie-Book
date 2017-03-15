@@ -7,8 +7,7 @@ import { Recipe } from "../recipe";
   templateUrl: './recipe-item.component.html'
 })
 export class RecipeItemComponent implements OnInit {
-  recipeId: number = 1;
-
+  @Input() recipeId: number;
   @Input() recipe: Recipe;
 
   constructor() { }
