@@ -9,21 +9,22 @@ import {RecipeService} from "../recipe.service";
   templateUrl: './recipe-detail.component.html'
 })
 export class RecipeDetailComponent implements OnInit {
-  @Input() selectedRecipe: Recipe;
+  selectedRecipe: Recipe;
 
   recipeId: number;
 
   constructor(private sls: ShoppingListService,
               private router: Router,
+              private recipeService: RecipeService,
               private  route: ActivatedRoute) { }
 
   ngOnInit() {
     this.route.params.subscribe(
       (param: any) => {
         this.recipeId = param['id'];
-        console.log(this.recipeId)
+        console.log(this.recipeId);
+        this.selectedRecipe = this.recipeService.getRecire(this.recipeId)
       });
-
   }
 
   onAddToList(){
