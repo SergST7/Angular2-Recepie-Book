@@ -27,4 +27,9 @@ export class RecipeService {
     return this.recipes[id]
   }
 
+  deleteRecipe(recipe: Recipe){
+    let index = this.recipes.indexOf(recipe);
+    this.recipes.splice(index, 1)
+  }
+
 }
