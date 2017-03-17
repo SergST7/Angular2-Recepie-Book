@@ -9,7 +9,7 @@
 				<input type="text"
 				       id="item-name"
 				       class="form-control"
-				       ngModel
+				       [ngModel]="item.name"
 				       name="name"
 				       required>
 			</div>
@@ -19,7 +19,7 @@
 				<input type="text"
 				       id="item-amount"
 				       class="form-control"
-				       ngModel
+				       [ngModel]="item.amount"
 				       name="amount"
 				       required>
 			</div>
