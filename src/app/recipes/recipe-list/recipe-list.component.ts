@@ -1,6 +1,6 @@
 import { Component, OnInit, EventEmitter } from '@angular/core';
 import {Recipe} from "../recipe";
-import {Output} from "@angular/core/src/metadata/directives";
+// import {Output} from "@angular/core/src/metadata/directives";
 import {RecipeService} from "../recipe.service";
 
 @Component({
