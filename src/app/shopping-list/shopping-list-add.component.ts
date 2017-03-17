@@ -31,4 +31,8 @@ export class ShoppingListAddComponent implements OnChanges {
     }
   }
 
+  onDelete(){
+    this.sls.deleteItem(this.item)
+  }
+
 }

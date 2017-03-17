@@ -23,4 +23,9 @@ export class ShoppingListService {
     let index = this.items.indexOf(oldItem);
     this.items[index] = newItem
   }
+
+  deleteItem(item: Ingredient){
+    let index = this.items.indexOf(item);
+    this.items.splice(index, 1);
+  }
 }
