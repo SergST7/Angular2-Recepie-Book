@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
 import {Ingredient} from "../shared/Ingredient";
 import {ShoppingListService} from "./shopping-list.service";
 
@@ -7,7 +7,7 @@ import {ShoppingListService} from "./shopping-list.service";
   templateUrl: './shopping-list-add.component.html'
 })
 export class ShoppingListAddComponent implements OnInit {
-  item: Ingredient;
+  @Input() item: Ingredient;
   isAdd = true;
 
   constructor(private sls: ShoppingListService) { }
