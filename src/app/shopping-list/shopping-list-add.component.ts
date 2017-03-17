@@ -25,14 +25,20 @@ export class ShoppingListAddComponent implements OnChanges {
     let newItem = new Ingredient(val.name, val.amount);
     if (this.isAdd){
       this.item = newItem;
-      this.sls.addItem(this.item)
+      this.sls.addItem(this.item);
+      this.onClear();
     } else {
       this.sls.editItem(this.item, newItem)
     }
   }
 
   onDelete(){
-    this.sls.deleteItem(this.item)
+    this.sls.deleteItem(this.item);
+    this.onClear();
+  }
+
+  onClear(){
+    this.isAdd = true
   }
 
 }
