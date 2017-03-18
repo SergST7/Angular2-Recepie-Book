@@ -17,8 +17,16 @@ export class RecipeEditComponent implements OnInit {
               private recipeService: RecipeService) { }
 
   ngOnInit() {
+    let isNew = true
     this.subscription = this.route.params.subscribe(
-      (param) => this.recipeId = +param['id']
+      (param: any) => {
+        if (param.hasOwnProperty('id')){
+          isNew=false;
+          this.recipeId = +param['id']
+        } else {
+          isNew = true
+        }
+      }
     )
   }
 
