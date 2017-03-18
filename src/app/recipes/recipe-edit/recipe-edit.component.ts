@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, OnDestroy} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {Subscription} from "rxjs/Rx";
 
@@ -9,7 +9,7 @@ import {RecipeService} from "../recipe.service";
   templateUrl: './recipe-edit.component.html',
   styleUrls: ['./recipe-edit.component.css']
 })
-export class RecipeEditComponent implements OnInit {
+export class RecipeEditComponent implements OnInit, OnDestroy {
   private recipeId: number;
   private subscription: Subscription;
 
@@ -17,7 +17,7 @@ export class RecipeEditComponent implements OnInit {
               private recipeService: RecipeService) { }
 
   ngOnInit() {
-    let isNew = true
+    let isNew = true;
     this.subscription = this.route.params.subscribe(
       (param: any) => {
         if (param.hasOwnProperty('id')){
@@ -28,6 +28,10 @@ export class RecipeEditComponent implements OnInit {
         }
       }
     )
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe()
   }
 
 }
