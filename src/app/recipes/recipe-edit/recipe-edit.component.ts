@@ -1,5 +1,5 @@
 import {Component, OnInit, OnDestroy} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {
   FormArray,
   FormGroup,
@@ -26,6 +26,7 @@ export class RecipeEditComponent implements OnInit, OnDestroy {
 
   constructor(private route: ActivatedRoute,
               private recipeService: RecipeService,
+              private router: Router,
               private formBuilder: FormBuilder) { }
 
   ngOnInit() {
@@ -52,6 +53,15 @@ export class RecipeEditComponent implements OnInit, OnDestroy {
     } else {
       this.recipeService.editRecipe(this.recipe, newRecipe)
     }
+    this.navigateBack();
+  }
+
+  onCansel(){
+    this.navigateBack();
+  }
+
+  private navigateBack(){
+    this.router.navigate(['../'])
   }
 
   ngOnDestroy() {
@@ -81,7 +91,7 @@ export class RecipeEditComponent implements OnInit, OnDestroy {
 
     this.recipeForm = this.formBuilder.group({
       name: [recipeName, Validators.required],
-      imageUrl: [recipeImageUrl, Validators.required],
+      imagePath: [recipeImageUrl, Validators.required],
       description: [recipeContent, Validators.required],
       ingredients: recipeIngredients
     })
