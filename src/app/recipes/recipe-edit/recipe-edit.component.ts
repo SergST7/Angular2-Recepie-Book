@@ -3,6 +3,7 @@ import {ActivatedRoute} from "@angular/router";
 import {Subscription} from "rxjs/Rx";
 
 import {RecipeService} from "../recipe.service";
+import {Recipe} from "../recipe";
 
 @Component({
   selector: 'rb-recipe-edit',
@@ -14,6 +15,7 @@ export class RecipeEditComponent implements OnInit, OnDestroy {
   private subscription: Subscription;
 
   constructor(private route: ActivatedRoute,
+              private recipe: Recipe,
               private recipeService: RecipeService) { }
 
   ngOnInit() {
@@ -22,9 +24,11 @@ export class RecipeEditComponent implements OnInit, OnDestroy {
       (param: any) => {
         if (param.hasOwnProperty('id')){
           isNew=false;
-          this.recipeId = +param['id']
+          this.recipeId = +param['id'];
+          this.recipe = this.recipeService.getRecire(this.recipeId)
         } else {
           isNew = true
+          this.recipe = null;
         }
       }
     )
