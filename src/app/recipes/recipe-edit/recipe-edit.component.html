@@ -92,9 +92,14 @@
 <div class="row">
   <div class="col-xs-12">
   <div class="form-group row ">
-    <div class="col-sm-5"><input type="text" class="form-control"></div>
-    <div class="col-sm-5"><input type="text" class="form-control"></div>
-    <div class="col-sm-2"><button class="btn btn-primary" type="submit">+</button></div>
+    <div class="col-sm-5"><input type="text" class="form-control" #ingredientName></div>
+    <div class="col-sm-5"><input type="text" class="form-control" #ingredientAmount></div>
+    <div class="col-sm-2">
+	    <button class="btn btn-primary"
+	            type="submit"
+	            (click)="onAddItem(ingredientName.value, ingredientAmount.value)"
+	    >+</button>
+    </div>
   </div>
   </div>
 </div>
