@@ -60,6 +60,10 @@ export class RecipeEditComponent implements OnInit, OnDestroy {
     this.navigateBack();
   }
 
+  onRemoveItem(index: number) {
+    (<FormArray>this.recipeForm.controls['ingredients']).removeAt(index)
+  }
+
   private navigateBack(){
     this.router.navigate(['../'])
   }

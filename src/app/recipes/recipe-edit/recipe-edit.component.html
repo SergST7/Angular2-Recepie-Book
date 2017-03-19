@@ -75,7 +75,9 @@
                          formControlName="amount"
                   >
                 </div>
-                <div class="col-sm-2"><button class="btn btn-danger" type="submit">x</button></div>
+                <div class="col-sm-2">
+	                <button class="btn btn-danger" type="submit" (click)="onRemoveItem(i)">x</button>
+                </div>
               </div>
               <br>
               <br>
