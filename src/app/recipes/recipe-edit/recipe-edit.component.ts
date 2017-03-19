@@ -18,7 +18,7 @@ import {Recipe} from "../recipe";
   styleUrls: ['./recipe-edit.component.css']
 })
 export class RecipeEditComponent implements OnInit, OnDestroy {
-  recipiForm: FormGroup;
+  recipeForm: FormGroup;
   private recipeId: number;
   private subscription: Subscription;
   private recipe: Recipe;
@@ -40,6 +40,7 @@ export class RecipeEditComponent implements OnInit, OnDestroy {
           this.isNew = true;
           this.recipe = null;
         }
+        this.initForm();
       }
     )
   }
@@ -69,7 +70,7 @@ export class RecipeEditComponent implements OnInit, OnDestroy {
       recipeContent = this.recipe.description;
     }
 
-    this.recipiForm = this.formBuilder.group({
+    this.recipeForm = this.formBuilder.group({
       name: [recipeName, Validators.required],
       imageUrl: [recipeImageUrl, Validators.required],
       description: [recipeContent, Validators.required],
