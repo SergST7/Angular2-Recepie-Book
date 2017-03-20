@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Recipe} from "./recipe";
 import {Ingredient} from "../shared/Ingredient";
+import {Headers, Http} from "@angular/http";
 
 @Injectable()
 export class RecipeService {
@@ -17,7 +18,9 @@ export class RecipeService {
     new Recipe('Dress', 'Nice black dress', 'https://s-media-cache-ak0.pinimg.com/736x/ac/ba/d9/acbad9b0d9aeb233da529f5444b03281.jpg', [])
   ];
 
-  constructor() { }
+  url = 'https://recipe-book-90cad.firebaseio.com/';
+
+  constructor(private http: Http) { }
 
   getData(){
     return this.recipes
@@ -39,6 +42,14 @@ export class RecipeService {
   editRecipe(oldRecipe: Recipe, newRecipe: Recipe){
     let oldIndex = this.recipes.indexOf(oldRecipe);
     this.recipes[oldIndex] = newRecipe
+  }
+
+  storeData(){
+    const body = JSON.stringify(this.recipes);
+    const headers = new Headers({
+      "Content-Type": "application/json"
+    });
+    return this.http.post(this.url+'recipe.json', body, {headers: headers} )
   }
 
 }

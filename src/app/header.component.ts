@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {RecipeService} from "./recipes/recipe.service";
 
 
 @Component({
@@ -7,6 +8,13 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 
-  constructor() { }
+  constructor(private recipeService: RecipeService) {}
+
+  onSendData(){
+    this.recipeService.storeData().subscribe(
+      data => console.log(data),
+      error => console.log(error)
+    )
+  }
 
 }
