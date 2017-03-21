@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable, EventEmitter} from '@angular/core';
 import {Recipe} from "./recipe";
 import {Ingredient} from "../shared/Ingredient";
 import {Headers, Http, Response} from "@angular/http";
@@ -21,6 +21,8 @@ export class RecipeService {
   ];
 
   url = 'https://recipe-book-90cad.firebaseio.com/';
+
+  dataFetched = new EventEmitter<Recipe[]>();
 
   constructor(private http: Http) { }
 
@@ -59,7 +61,9 @@ export class RecipeService {
       .map((response: Response) => response.json())
       .subscribe(
         (data: Recipe[]) => {
+          console.log(data);
           this.recipes = data;
+          this.dataFetched.emit(data)
         })
   }
 
