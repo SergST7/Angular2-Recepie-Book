@@ -16,7 +16,12 @@ export class RecipeService {
         new Ingredient('Pork Meat', 1),
         new Ingredient('Lemon', 1)
       ]),
-    new Recipe('Summer Salad', 'Okayish', 'http://ohmyveggies.com/wp-content/uploads/2013/06/the_perfect_summer_salad.jpg', []),
+    new Recipe('Summer Salad', 'Okayish', 'http://ohmyveggies.com/wp-content/uploads/2013/06/the_perfect_summer_salad.jpg',
+      [
+        new Ingredient('Tomatoes', 2),
+        new Ingredient('Baby cucumbers', 3),
+        new Ingredient('Stems of green onion', 1)
+    ]),
     new Recipe('Dress', 'Nice black dress', 'https://s-media-cache-ak0.pinimg.com/736x/ac/ba/d9/acbad9b0d9aeb233da529f5444b03281.jpg', [])
   ];
 
